@@ -58,7 +58,7 @@
 				<field
 					name="brand"
 					type="radio"
-					label="TPL_{{cookiecutter.project_slug.toupper()}}_BRAND_LABEL"
+					label="TPL_{{cookiecutter.project_slug.upper()}}_BRAND_LABEL"
 					default="1"
 					layout="joomla.form.field.radio.switcher"
 					filter="options"
@@ -71,7 +71,7 @@
 					name="logoFile"
 					type="media"
 					default=""
-					label="TPL_{{cookiecutter.project_slug.toupper()}}_LOGO_LABEL"
+					label="TPL_{{cookiecutter.project_slug.upper()}}_LOGO_LABEL"
 					showon="brand:1"
 				/>
 
@@ -79,7 +79,7 @@
 					name="siteTitle"
 					type="text"
 					default=""
-					label="TPL_{{cookiecutter.project_slug.toupper()}}_TITLE"
+					label="TPL_{{cookiecutter.project_slug.upper()}}_TITLE"
 					filter="string"
 					showon="brand:1"
 				/>
