@@ -13,6 +13,8 @@
         "version": "{{ cookiecutter.version }}",
         "short_description": "{{ cookiecutter.short_description }}",
         "namespace": "{{ cookiecutter.namespace }}",
+        "__entity": "",
+        "__entities": "",
         "__project_type": "module",
         "__extension_prefix": "mod",
         "__language_dir": "src/{{ cookiecutter.__project_type }}s/mod_{{ cookiecutter.project_slug}}/language",

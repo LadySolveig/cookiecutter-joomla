@@ -1,0 +1,3 @@
+--
+-- Table structure for table `#__{{cookiecutter.project_slug}}_{{cookiecutter.__entities}}`
+--

@@ -13,6 +13,8 @@
         "version": "{{ cookiecutter.version }}",
         "short_description": "{{ cookiecutter.short_description }}",
         "namespace": "{{ cookiecutter.namespace }}",
+        "__entity": "{{ cookiecutter.__entity }}",
+        "__entities": "{{ cookiecutter.__entities }}",
         "__project_type": "component",
         "__extension_prefix": "com",
         "__language_dir": "src/{{ cookiecutter.__project_type }}s/com_{{ cookiecutter.project_slug}}/language",

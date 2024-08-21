@@ -14,6 +14,8 @@
         "version": "{{ cookiecutter.version }}",
         "short_description": "{{ cookiecutter.short_description }}",
         "namespace": "{{ cookiecutter.namespace }}",
+        "__entity": "",
+        "__entities": "",
         "__project_type": "plugin",
         "__extension_prefix": "plg",
         "__language_dir": "src/{{ cookiecutter.__project_type }}s/{{ cookiecutter.plugin_type }}/{{ cookiecutter.project_slug}}/language",
