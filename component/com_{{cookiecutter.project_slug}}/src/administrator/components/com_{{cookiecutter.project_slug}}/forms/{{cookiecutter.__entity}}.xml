@@ -14,7 +14,7 @@
 		<field
 			name="name"
 			type="text"
-			label="COM_{{cookiecutter.project_slug.upper()}_{{cookiecutter.__entities.upper()}}_FIELD_NAME_LABEL"
+			label="COM_{{cookiecutter.project_slug.upper()}}_{{cookiecutter.__entities.upper()}}_FIELD_NAME_LABEL"
 			required="true"
 		/>
 
@@ -84,12 +84,12 @@
 
 	</fieldset>
 
-	<fieldset name="publish" label="COM_{{cookiecutter.project_slug.upper()}_{{cookiecutter.__entities.upper()}}_GROUP_LABEL_PUBLISHING_DETAILS">
+	<fieldset name="publish" label="COM_{{cookiecutter.project_slug.upper()}}_{{cookiecutter.__entities.upper()}}_GROUP_LABEL_PUBLISHING_DETAILS">
 
 		<field
 			name="created"
 			type="calendar"
-			label="COM_{{cookiecutter.project_slug.upper()}_{{cookiecutter.__entities.upper()}}_FIELD_CREATED_LABEL"
+			label="COM_{{cookiecutter.project_slug.upper()}}_{{cookiecutter.__entities.upper()}}_FIELD_CREATED_LABEL"
 			translateformat="true"
 			showtime="true"
 			filter="user_utc"
@@ -98,14 +98,14 @@
 		<field
 			name="created_by"
 			type="user"
-			label="COM_{{cookiecutter.project_slug.upper()}_{{cookiecutter.__entities.upper()}}_FIELD_CREATED_BY_LABEL"
+			label="COM_{{cookiecutter.project_slug.upper()}}_{{cookiecutter.__entities.upper()}}_FIELD_CREATED_BY_LABEL"
 			validate="UserId"
 		/>
 
 		<field
 			name="created_by_alias"
 			type="text"
-			label="COM_{{cookiecutter.project_slug.upper()}_{{cookiecutter.__entities.upper()}}_FIELD_CREATED_BY_ALIAS_LABEL"
+			label="COM_{{cookiecutter.project_slug.upper()}}_{{cookiecutter.__entities.upper()}}_FIELD_CREATED_BY_ALIAS_LABEL"
 		/>
 
 		<field
@@ -132,7 +132,7 @@
 		<field
 			name="version"
 			type="text"
-			label="COM_{{cookiecutter.project_slug.upper()}_{{cookiecutter.__entities.upper()}}_FIELD_VERSION_LABEL"
+			label="COM_{{cookiecutter.project_slug.upper()}}_{{cookiecutter.__entities.upper()}}_FIELD_VERSION_LABEL"
 			class="readonly"
 			readonly="true"
 			filter="unset"
@@ -141,7 +141,7 @@
 		<field
 			name="publish_up"
 			type="calendar"
-			label="COM_{{cookiecutter.project_slug.upper()}_{{cookiecutter.__entities.upper()}}_FIELD_PUBLISH_UP_LABEL"
+			label="COM_{{cookiecutter.project_slug.upper()}}_{{cookiecutter.__entities.upper()}}_FIELD_PUBLISH_UP_LABEL"
 			translateformat="true"
 			showtime="true"
 			filter="user_utc"
@@ -150,7 +150,7 @@
 		<field
 			name="publish_down"
 			type="calendar"
-			label="COM_{{cookiecutter.project_slug.upper()}_{{cookiecutter.__entities.upper()}}_FIELD_PUBLISH_DOWN_LABEL"
+			label="COM_{{cookiecutter.project_slug.upper()}}_{{cookiecutter.__entities.upper()}}_FIELD_PUBLISH_DOWN_LABEL"
 			translateformat="true"
 			showtime="true"
 			filter="user_utc"
