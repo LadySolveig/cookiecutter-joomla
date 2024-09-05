@@ -5,8 +5,8 @@
 			name="search"
 			type="text"
 			inputmode="search"
-			label="COM_{{cookiecutter.project_slug.upper()}_{{cookiecutter.__entities.upper()}}_FILTER_SEARCH_LABEL"
-			description="COM_{{cookiecutter.project_slug.upper()}_{{cookiecutter.__entities.upper()}}_FILTER_SEARCH_DESC"
+			label="COM_{{cookiecutter.project_slug.upper()}}_{{cookiecutter.__entities.upper()}}_FILTER_SEARCH_LABEL"
+			description="COM_{{cookiecutter.project_slug.upper()}}_{{cookiecutter.__entities.upper()}}_FILTER_SEARCH_DESC"
 			hint="JSEARCH_FILTER"
 		/>
 
