@@ -3,9 +3,12 @@
 
 namespace {{cookiecutter.namespace}}\Component\{{cookiecutter.__project_camelcaps}}\Administrator\Controller;
 
-use Joomla\CMS\MVC\Controller\FormController;
-use Joomla\CMS\Router\Route;
-use Joomla\CMS\Versioning\VersionableControllerTrait;
+use Joomla\CMS\Application\CMSApplication;
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\MVC\Controller\AdminController;
+use Joomla\CMS\MVC\Factory\MVCFactoryInterface;
+use Joomla\CMS\Response\JsonResponse;
+use Joomla\Input\Input;
 use Joomla\Utilities\ArrayHelper;
 
 // phpcs:disable PSR1.Files.SideEffects
@@ -13,92 +16,74 @@ use Joomla\Utilities\ArrayHelper;
 // phpcs:enable PSR1.Files.SideEffects
 
 /**
- * Banner controller class.
+ * {{cookiecutter.__entities.capitalize()}} list controller class.
  *
- * @since  1.6
+ * @since  __DEPLOY_VERSION__
  */
-class BannerController extends FormController
+class {{cookiecutter.__entities.capitalize()}}Controller extends AdminController
 {
-    use VersionableControllerTrait;
-
     /**
      * The prefix to use with controller messages.
      *
      * @var    string
-     * @since  1.6
+     * @since  __DEPLOY_VERSION__
      */
-    protected $text_prefix = 'COM_BANNERS_BANNER';
+    protected $text_prefix = 'COM_{{cookiecutter.project_slug.upper()}}_{{cookiecutter.__entities.upper()}}';
 
     /**
-     * Method override to check if you can add a new record.
+     * Constructor.
      *
-     * @param   array  $data  An array of input data.
-     *
-     * @return  boolean
+     * @param   array                 $config   An optional associative array of configuration settings.
+     * @param   ?MVCFactoryInterface  $factory  The factory.
+     * @param   ?CMSApplication       $app      The Application for the dispatcher
+     * @param   ?Input                $input    Input
      *
      * @since   __DEPLOY_VERSION__
      */
-    protected function allowAdd($data = [])
+    public function __construct($config = [], MVCFactoryInterface $factory = null, $app = null, $input = null)
     {
-        $filter     = $this->input->getInt('filter_category_id');
-        $categoryId = ArrayHelper::getValue($data, 'catid', $filter, 'int');
+        parent::__construct($config, $factory, $app, $input);
 
-        if ($categoryId) {
-            // If the category has been passed in the URL check it.
-            return $this->app->getIdentity()->authorise('core.create', $this->option . '.category.' . $categoryId);
-        }
-
-        // In the absence of better information, revert to the component permissions.
-        return parent::allowAdd($data);
+        // $this->registerTask('sticky_unpublish', 'sticky_publish');
     }
 
     /**
-     * Method override to check if you can edit an existing record.
+     * Method to get a model object, loading it if required.
      *
-     * @param   array   $data  An array of input data.
-     * @param   string  $key   The name of the key for the primary key.
+     * @param   string  $name    The model name. Optional.
+     * @param   string  $prefix  The class prefix. Optional.
+     * @param   array   $config  Configuration array for model. Optional.
      *
-     * @return  boolean
+     * @return  \Joomla\CMS\MVC\Model\BaseDatabaseModel  The model.
      *
      * @since   __DEPLOY_VERSION__
      */
-    protected function allowEdit($data = [], $key = 'id')
+    public function getModel($name = '{{cookiecutter.__entities.capitalize()}}', $prefix = 'Administrator', $config = ['ignore_request' => true])
     {
-        $recordId   = (int) isset($data[$key]) ? $data[$key] : 0;
-        $categoryId = 0;
-
-        if ($recordId) {
-            $categoryId = (int) $this->getModel()->getItem($recordId)->catid;
-        }
-
-        if ($categoryId) {
-            // The category has been set. Check the category permissions.
-            return $this->app->getIdentity()->authorise('core.edit', $this->option . '.category.' . $categoryId);
-        }
-
-        // Since there is no asset tracking, revert to the component permissions.
-        return parent::allowEdit($data, $key);
+        return parent::getModel($name, $prefix, $config);
     }
 
     /**
-     * Method to run batch operations.
+     * Method to get the number of published {{cookiecutter.__entities}} for quickicons
      *
-     * @param   string  $model  The model
-     *
-     * @return  boolean  True on success.
+     * @return  void
      *
      * @since   __DEPLOY_VERSION__
      */
-    public function batch($model = null)
+    public function getQuickiconContent()
     {
-        $this->checkToken();
+        $model = $this->getModel('{{cookiecutter.__entities}}.lower()');
 
-        // Set the model
-        $model = $this->getModel('Banner', '', []);
+        $model->setState('filter.published', 1);
 
-        // Preset the redirect
-        $this->setRedirect(Route::_('index.php?option=com_banners&view=banners' . $this->getRedirectToListAppend(), false));
+        $amount = (int) $model->getTotal();
 
-        return parent::batch($model);
+        $result = [];
+
+        $result['amount'] = $amount;
+        $result['sronly'] = Text::plural('{{cookiecutter.project_slug.upper()}}_{{cookiecutter.__entities.upper()}}_N_QUICKICON_SRONLY', $amount);
+        $result['name']   = Text::plural('{{cookiecutter.project_slug.upper()}}_{{cookiecutter.__entities.upper()}}_N_QUICKICON', $amount);
+
+        echo new JsonResponse($result);
     }
 }
