@@ -14,6 +14,7 @@ use Joomla\CMS\Extension\Service\Provider\RouterFactory;
 use Joomla\CMS\HTML\Registry;
 use Joomla\CMS\MVC\Factory\MVCFactoryInterface;
 use {{cookiecutter.namespace}}\Component\{{cookiecutter.__project_camelcaps}}\Administrator\Extension\{{cookiecutter.__project_camelcaps}}Component;
+// use {{cookiecutter.namespace}}\Component\Administrator\Helper\AssociationsHelper;
 use Joomla\DI\Container;
 use Joomla\DI\ServiceProviderInterface;
 
@@ -47,6 +48,7 @@ return new class () implements ServiceProviderInterface {
                 $component->setRegistry($container->get(Registry::class));
                 $component->setMVCFactory($container->get(MVCFactoryInterface::class));
                 $component->setCategoryFactory($container->get(CategoryFactoryInterface::class));
+                // $component->setAssociationExtension($container->get(AssociationExtensionInterface::class));
                 $component->setRouterFactory($container->get(RouterFactoryInterface::class));
 
                 return $component;
