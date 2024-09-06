@@ -9,6 +9,11 @@
             "path": "./module",
             "title": "Module",
             "description": "A cookiecutter template for a Joomla! module"
+        },
+        "component": {
+            "path": "./component",
+            "title": "Component",
+            "description": "A cookiecutter template for a Joomla! component"
         }
     }
 }
