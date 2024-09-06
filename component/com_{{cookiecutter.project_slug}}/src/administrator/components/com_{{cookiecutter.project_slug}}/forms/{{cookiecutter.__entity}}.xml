@@ -55,7 +55,7 @@
 			name="ordering"
 			type="ordering"
 			label="JFIELD_ORDERING_LABEL"
-			table="#__banners"
+			table="#__{{cookiecutter.__entities.lower()}}"
 		/>
 
 		<field
